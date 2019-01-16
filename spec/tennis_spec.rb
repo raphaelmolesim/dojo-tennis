@@ -63,6 +63,23 @@ describe "Tennis" do
     expect(placar.qtd_pontos_jogador_a).to be(30)
     expect(placar.qtd_pontos_jogador_b).to be(15)
   end
-  
+
+  it "Deveria ganhar quando jogador A faz 4 pontos" do
+    placar = Tennis.new
+    placar.computa_jogada("JogadorA")
+    placar.computa_jogada("JogadorA")
+    placar.computa_jogada("JogadorA")
+    placar.computa_jogada("JogadorA")
+    expect(placar.resultado).to eq("JogadorA ganhou")
+  end  
+
+  it "Deveria ganhar quando jogador B faz 4 pontos" do
+    placar = Tennis.new
+    placar.computa_jogada("JogadorB")
+    placar.computa_jogada("JogadorB")
+    placar.computa_jogada("JogadorB")
+    placar.computa_jogada("JogadorB")
+    expect(placar.resultado).to eq("JogadorB ganhou")
+  end  
   
 end
