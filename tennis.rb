@@ -13,7 +13,11 @@ class Tennis
       @qtd_pontos_jogador_a += 15
     end
     if(jogador == "JogadorB")
-      @qtd_pontos_jogador_b = 15
+      if(@qtd_pontos_jogador_b == 30)
+        @qtd_pontos_jogador_b += 10
+      else
+        @qtd_pontos_jogador_b += 15
+      end
     end
   end
   
