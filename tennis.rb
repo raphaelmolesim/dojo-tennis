@@ -3,17 +3,15 @@ class Tennis
   attr_accessor :qtd_pontos_jogador_b
   attr_accessor :resultado
   
+  PONTUACAO = [ 0, 15, 30, 40, 55 ]
+  
   def initialize
     @qtd_pontos_jogador_a = 0
     @qtd_pontos_jogador_b = 0
   end
   
   def computa_pontos pontos
-    if(pontos == 30)
-      40
-    else
-      pontos += 15
-    end
+    PONTUACAO[PONTUACAO.find_index(pontos)+1]
   end
   
   def computa_jogada jogador
