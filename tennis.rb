@@ -10,7 +10,7 @@ class Tennis
   
   def computa_jogada jogador
     if(jogador == "JogadorA")
-      @qtd_pontos_jogador_a = 15
+      @qtd_pontos_jogador_a += 15
     end
     if(jogador == "JogadorB")
       @qtd_pontos_jogador_b = 15

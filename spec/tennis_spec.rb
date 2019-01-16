@@ -20,6 +20,15 @@ describe "Tennis" do
   end
   
   
+  it "deveria marcar 30x0 quando jogador A faz dois pontos" do
+    placar = Tennis.new
+    placar.computa_jogada("JogadorA")
+    placar.computa_jogada("JogadorA")
+
+    expect(placar.qtd_pontos_jogador_a).to be(30)
+    expect(placar.qtd_pontos_jogador_b).to be(0)
+  end
+  
   
   
 end
