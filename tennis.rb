@@ -7,24 +7,20 @@ class Tennis
     @qtd_pontos_jogador_b = 0
   end
   
-  def computa_pontos jogador
-    if(jogador == "JogadorA")
-      if(@qtd_pontos_jogador_a == 30)
-        @qtd_pontos_jogador_a += 10
-      else
-        @qtd_pontos_jogador_a += 15
-      end
+  def computa_pontos pontos
+    if(pontos == 30)
+      40
     else
-      if(@qtd_pontos_jogador_b == 30)
-        @qtd_pontos_jogador_b += 10
-      else
-        @qtd_pontos_jogador_b += 15
-      end
+      pontos += 15
     end
   end
   
   def computa_jogada jogador
-    computa_pontos jogador
+    if (jogador == "JogadorA")
+      @qtd_pontos_jogador_a = computa_pontos @qtd_pontos_jogador_a
+    else 
+      @qtd_pontos_jogador_b = computa_pontos @qtd_pontos_jogador_b
+    end
   end
   
 end
