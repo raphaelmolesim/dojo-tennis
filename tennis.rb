@@ -1,31 +1,28 @@
 class Tennis
-  attr_accessor :qtd_pontos_jogador_a
-  attr_accessor :qtd_pontos_jogador_b
   attr_accessor :resultado
   
   PONTUACAO = [ 0, 15, 30, 40, 55 ]
   
   def initialize
-    @qtd_pontos_jogador_a = 0
-    @qtd_pontos_jogador_b = 0
+    @pontos_jogador_a, @pontos_jogador_b = 0, 0
   end
   
-  def computa_pontos pontos
-    PONTUACAO[PONTUACAO.find_index(pontos)+1]
+  def qtd_pontos_jogador_a
+    PONTUACAO[@pontos_jogador_a]
+  end
+  
+  def qtd_pontos_jogador_b
+    PONTUACAO[@pontos_jogador_b]
   end
   
   def computa_jogada jogador
-    if (jogador == "JogadorA")
-      @qtd_pontos_jogador_a = computa_pontos @qtd_pontos_jogador_a
-      if ( @qtd_pontos_jogador_a > 40 )
-        @resultado = "JogadorA ganhou"
-      end
-    else 
-      @qtd_pontos_jogador_b = computa_pontos @qtd_pontos_jogador_b
-      if ( @qtd_pontos_jogador_b > 40 )
-        @resultado = "JogadorB ganhou"
-      end
-    end
+    marca_ponto = {
+      "JogadorA" => -> () { @pontos_jogador_a += 1 },
+      "JogadorB" => -> () { @pontos_jogador_b += 1 }
+    }[jogador]
+    
+    @resultado = "#{jogador} ganhou" if marca_ponto[] > 3
+    
   end
-  
+
 end
